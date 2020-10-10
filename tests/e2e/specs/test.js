@@ -66,6 +66,13 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '2000');
   });
 
-  
+  it('should display a message when dividing by zero', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+
+    cy.get('.display').should('contain', 'Cannot divide by zero');
+  });
 
 })
